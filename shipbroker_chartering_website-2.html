@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SeaNavia — Shipbroking & Chartering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1A5C71;
+      --secondary: #81ADBB;
+      --accent: #C6CB00;
+      --bg: #f4f7f9;
+      --text: #1f2a30;
+      --muted: #6f8893;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* Top Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: white;
+      border-bottom: 1px solid #e6edf1;
+      z-index: 10;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 1px;
+    }
+
+    .logo img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: contain;
+      background: #eef3f6;
+      border: 1px solid #dbe6ec;
+      padding: 6px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links a {
+      margin-left: 30px;
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero Section with Background Image */
+    header {
+      position: relative;
+      background:
+        linear-gradient(rgba(26,92,113,0.75), rgba(26,92,113,0.85)),
+        url("https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 140px 20px 120px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin-top: 24px;
+      font-size: 1.1rem;
+      color: #e4f1f5;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 100px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+    }
+
+    .card {
+      background: white;
+      padding: 50px 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.04);
+      position: relative;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 0 0 6px 0;
+    }
+
+    .card h2 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+    }
+
+    .services ul {
+      list-style: none;
+    }
+
+    .services li {
+      padding: 12px 0;
+      border-bottom: 1px solid #eef2f4;
+      color: #314a53;
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Contact Box */
+    .contact-box {
+      background: var(--primary);
+      color: white;
+      padding: 60px 50px;
+      border-radius: 24px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+    }
+
+    .contact-box h2 {
+      color: var(--accent);
+      margin-bottom: 25px;
+      font-size: 1.6rem;
+    }
+
+    .contact-box p {
+      margin-bottom: 30px;
+      color: #d9edf3;
+    }
+
+    .contact-box input,
+    .contact-box textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 18px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      font-size: 0.95rem;
+    }
+
+    .contact-box button {
+      background: var(--accent);
+      color: #1f2a30;
+      border: none;
+      padding: 14px 36px;
+      border-radius: 40px;
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .contact-email {
+      margin-top: 25px;
+      font-size: 0.95rem;
+      color: #e9f6fa;
+    }
+
+    .contact-email strong {
+      color: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      background: #0f3f4f;
+      color: #cfe6ee;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 800px) {
+      header h1 { font-size: 2.2rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">
+        <!-- Replace src with your real logo file when ready -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg" alt="SeaNavia Logo" />
+        Sea<span>Navia</span>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header>
+    <h1>SeaNavia</h1>
+    <p>
+      Shipbroking and chartering services, delivering precise maritime solutions
+      across global shipping markets.
+    </p>
+  </header>
+
+  <!-- Main Sections -->
+  <section class="container">
+
+    <div class="card" id="about">
+      <h2>About SeaNavia</h2>
+      <p>
+        SeaNavia is an independent <span class="highlight">shipbroking and chartering</span> company
+        providing bespoke freight solutions to owners, operators, and charterers worldwide.
+        Our approach is discreet, analytical, and focused on long-term value creation.
+      </p>
+    </div>
+
+    <div class="card services" id="services">
+      <h2>Our Services</h2>
+      <ul>
+        <li>Dry Bulk Chartering</li>
+        <li>Time Charter & Voyage Charter</li>
+        <li>Contract Negotiation & Documentation</li>
+        <li>Market Intelligence & Advisory</li>
+        <li>Post-Fixture Operations & Support</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Why SeaNavia</h2>
+      <p>
+        Combining market insight with disciplined execution, SeaNavia delivers
+        commercially sound fixtures with confidentiality, accuracy, and strategic vision
+        at every stage of the chartering process.
+      </p>
+    </div>
+
+    <div class="contact-box" id="contact">
+      <h2>Contact Us</h2>
+      <p>
+        For inquiries, fixtures, or market discussions, please contact our chartering desk.
+      </p>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <div class="contact-email">
+        Direct email: <strong>chart@seanavia.com</strong>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    © 2024 SeaNavia — Shipbroking & Chartering. All Rights Reserved
+  </footer>
+
+</body>
+</html>
